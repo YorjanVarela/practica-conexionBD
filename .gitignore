@@ -37,3 +37,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Archivos compilados por Java y Maven
+target/
+*.class
+
+# Configuración local de IntelliJ IDEA (específica de cada computadora)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Archivos temporales o de sistema
+.DS_Store
+*.log
