@@ -1,8 +1,6 @@
 package org.example;
 
 import java.sql.Connection;
-
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,33 +10,31 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("--- PRUEBA DE CONEXIÓN Y PERSISTENCIA DE DATOS ---");
+        System.out.println("PRUEBA DE CONEXIÓN Y PERSISTENCIA DE DATOS");
 
-        // 1. Obtener la lista actual de libros desde MariaDB
+        // 1. Obtener la lista actual de libros desde la db
         List<Libro> libros = listarLibros();
         System.out.println("\n📚 Libros registrados en la base de datos:");
         for (Libro l : libros) {
             System.out.println(l);
         }
 
-        // 2. Insertar un nuevo libro para probar la persistencia
-        System.out.println("\n➕ Insertando un nuevo libro...");
+        // 2. Insertar un nuevo libro para probar
+        System.out.println("\n➕ Insertando un nuevo libro;");
         boolean insertado = agregarLibro("Patrones de Diseño", "Erich Gamma", 1994, "978-0201633610");
 
         if (insertado) {
             System.out.println("✅ Libro guardado exitosamente en la base de datos.");
         }
 
-        // 3. Mostrar la lista actualizada
+        // 3. Actualizar la lista
         System.out.println("\n📚 Lista actualizada de libros:");
         for (Libro l : listarLibros()) {
             System.out.println(l);
         }
     }
 
-    /**
-     * Consulta y retorna todos los registros de la tabla 'libros' [00:12:46].
-     */
+    /*Consulta y retorno de los registros de la tabla libros*/
     public static List<Libro> listarLibros() {
         List<Libro> lista = new ArrayList<>();
         String sql = "SELECT id, titulo, autor, anio_publicacion, isbn FROM libros";
@@ -67,9 +63,8 @@ public class Main {
         return lista;
     }
 
-    /**
-     * Inserta un registro en la tabla 'libros'.
-     */
+    /*Inserta un registro en la tabla*/
+
     public static boolean agregarLibro(String titulo, String autor, int anio, String isbn) {
         String sql = "INSERT INTO libros (titulo, autor, anio_publicacion, isbn) VALUES (?, ?, ?, ?)";
         Connection cn = ConexionDB.obtenerConexion();

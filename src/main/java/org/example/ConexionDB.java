@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConexionDB {
 
-    // Configuración para XAMPP en Linux (puerto 3306, usuario root sin contraseña)
+    // Configuración para XAMPP (linux)
     private static final String URL = "jdbc:mysql://localhost:3306/biblioteca?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "";
